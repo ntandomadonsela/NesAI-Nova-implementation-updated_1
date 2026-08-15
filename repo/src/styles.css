@@ -1,0 +1,146 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+@import "katex/dist/katex.min.css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * NesAI Nova — a Nesma Holdings product.
+ * Midnight blue and Nesma orange anchor the brand, with brighter study-space
+ * accents that feel energetic and clear for young learners.
+ */
+
+@theme inline {
+  --font-serif: "Sora", "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-gold: var(--gold);
+  --color-gold-foreground: var(--gold-foreground);
+  --color-ivory: var(--ivory);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --shadow-editorial: var(--shadow-editorial);
+  --shadow-editorial-lg: var(--shadow-editorial-lg);
+  --color-nova-blue: var(--nova-blue);
+  --color-nova-lilac: var(--nova-lilac);
+  --color-nova-mint: var(--nova-mint);
+}
+
+:root {
+  --radius: 1rem;
+
+  /* Canvas */
+  --ivory: oklch(0.985 0.006 80);
+  --background: oklch(0.982 0.008 80);
+  --foreground: oklch(0.18 0.045 265);
+
+  /* Surfaces */
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.18 0.045 265);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.18 0.045 265);
+
+  /* Nesma midnight blue */
+  --primary: oklch(0.18 0.045 265);
+  --primary-foreground: oklch(0.99 0.006 80);
+
+  /* Secondary neutral */
+  --secondary: oklch(0.955 0.02 255);
+  --secondary-foreground: oklch(0.18 0.045 265);
+
+  --muted: oklch(0.955 0.016 255);
+  --muted-foreground: oklch(0.46 0.03 265);
+
+  --accent: oklch(0.94 0.035 70);
+  --accent-foreground: oklch(0.18 0.045 265);
+
+  /* Nesma orange */
+  --gold: oklch(0.68 0.19 48);
+  --gold-foreground: oklch(0.99 0.006 80);
+  --nova-blue: oklch(0.61 0.18 255);
+  --nova-lilac: oklch(0.71 0.14 305);
+  --nova-mint: oklch(0.75 0.14 170);
+
+  /* Growth green */
+  --success: oklch(0.62 0.14 165);
+  --success-foreground: oklch(0.99 0.005 85);
+
+  --destructive: oklch(0.55 0.22 25);
+  --destructive-foreground: oklch(0.985 0.005 85);
+
+  --border: oklch(0.89 0.02 260);
+  --input: oklch(0.89 0.02 260);
+  --ring: oklch(0.68 0.19 48);
+
+  --shadow-editorial: 0 2px 4px rgb(11 21 48 / 0.04), 0 10px 30px rgb(11 21 48 / 0.08);
+  --shadow-editorial-lg: 0 12px 30px rgb(11 21 48 / 0.08), 0 30px 70px rgb(11 21 48 / 0.12);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html, body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  h1, h2, h3, h4, .font-serif {
+    font-family: var(--font-serif);
+    font-weight: 650;
+    letter-spacing: -0.035em;
+  }
+}
+
+@utility paper-card {
+  background-color: var(--color-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-editorial);
+}
+
+@utility nova-grid {
+  background-image: linear-gradient(rgb(255 255 255 / 0.08) 1px, transparent 1px), linear-gradient(90deg, rgb(255 255 255 / 0.08) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+@utility nova-orb {
+  filter: blur(1px);
+  border-radius: 9999px;
+}
+
+@utility gold-btn {
+  background-color: var(--color-gold);
+  color: var(--color-gold-foreground);
+  transition: filter 200ms ease;
+}
